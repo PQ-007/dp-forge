@@ -15,7 +15,8 @@ dp-club/
 |---|---|
 | **Windows** | [Visual Studio 2022 Community](https://visualstudio.microsoft.com/) ("Desktop development with C++" сонгоно) + [Git](https://git-scm.com/) |
 | **macOS** | Terminal дээр `xcode-select --install`, дараа нь `brew install cmake` |
-| **Linux** | `sudo apt install build-essential cmake git libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev` |
+| **Linux (Ubuntu)** | `sudo apt install build-essential cmake git libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev` |
+| **Linux (Fedora)** | `sudo dnf install gcc-c++ cmake git libX11-devel libXrandr-devel libXinerama-devel libXcursor-devel libXi-devel mesa-libGL-devel` |
 
 Код засахад [VS Code](https://code.visualstudio.com/) + "C/C++" ба "CMake Tools" extension тохиромжтой.
 
