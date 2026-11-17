@@ -11,7 +11,7 @@
 | 2 | `02_window/` | `InitWindow`, game loop, `BeginDrawing` / `EndDrawing`, координат |
 | 3 | `03_move/` | `IsKeyDown`, байрлал өөрчлөх, дэлгэцийн хязгаар |
 | 4 | `04_delta_time/` | `GetFrameTime()`: FPS-ээс үл хамааран ижил хурд (1–4 товчоор FPS солино) |
-| ★ | `../game/src/` | Улирлын тоглоом: `Player` struct, `UpdatePlayer`, `DrawPlayer`, debug (F1) |
+| ★ | [`../../game/src/`](../../game/src/) | Таны тоглоом: `Player` struct, `UpdatePlayer`, `DrawPlayer`, debug (F1) |
 
 ## Game loop
 

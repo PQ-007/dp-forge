@@ -1,3 +1,4 @@
+# Энэ файлыг БАГШ засна. Сурагчид засах шаардлагагүй.
 cmake_minimum_required(VERSION 3.16)
 project(dp_club CXX C)
 
@@ -16,22 +17,31 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(raylib)
 
-# Долоо хоног 2: алхам алхмаар жишээнүүд
-add_executable(w02_hello  week02/01_hello_cpp/main.cpp)        # raylib хэрэггүй
-add_executable(w02_window week02/02_window/main.cpp)
-add_executable(w02_move   week02/03_move/main.cpp)
-add_executable(w02_delta  week02/04_delta_time/main.cpp)
-target_link_libraries(w02_window raylib)
-target_link_libraries(w02_move   raylib)
-target_link_libraries(w02_delta  raylib)
+# Бүх програм build/ (Windows дээр build\Debug\) дотор үүснэ
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
-# Улирлын турш томрох тоглоом
-file(GLOB GAME_SOURCES CONFIGURE_DEPENDS game/src/*.cpp)
-add_executable(game ${GAME_SOURCES})
-target_link_libraries(game raylib)
+# raylib ашигладаг програм нэмэх туслах функц
+function(dp_raylib_app name)
+  add_executable(${name} ${ARGN})
+  target_link_libraries(${name} PRIVATE raylib)
+  if (APPLE)
+    target_link_libraries(${name} PRIVATE "-framework IOKit" "-framework Cocoa" "-framework OpenGL")
+  endif()
+endfunction()
 
-if (APPLE)
-  foreach(t w02_window w02_move w02_delta game)
-    target_link_libraries(${t} "-framework IOKit" "-framework Cocoa" "-framework OpenGL")
-  endforeach()
-endif()
+# ===== lessons/ : долоо хоног бүрийн жишээ =====
+# lessons/weekNN/CMakeLists.txt бүрийг автоматаар олно
+file(GLOB LESSON_DIRS CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/lessons/week*)
+foreach(dir ${LESSON_DIRS})
+  if (EXISTS ${dir}/CMakeLists.txt)
+    add_subdirectory(${dir})
+  endif()
+endforeach()
+
+# ===== game/ : сурагч бүрийн өөрийн тоглоом =====
+# game/src/ доторх бүх .cpp (дэд хавтас ч гэсэн) автоматаар build-д орно
+file(GLOB_RECURSE GAME_SOURCES CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/game/src/*.cpp)
+dp_raylib_app(game ${GAME_SOURCES})
+target_include_directories(game PRIVATE ${CMAKE_SOURCE_DIR}/game/src)
+# Зураг, дуу ачаалах: LoadTexture(ASSETS_DIR "hero.png")
+target_compile_definitions(game PRIVATE ASSETS_DIR="${CMAKE_SOURCE_DIR}/game/assets/")
