@@ -3,7 +3,7 @@
 DP club-ийн бүх код энд байна. Улирлын турш нэг тоглоомыг C++ ба [raylib](https://www.raylib.com/) ашиглан эхнээс нь бүтээнэ.
 
 ```
-dp-club/
+dp-forge/
 ├── CMakeLists.txt        # бүх төслийг build хийнэ (raylib-г автоматаар татна)
 ├── game/src/             # улирлын турш томрох тоглоом
 └── week02/               # долоо хоног бүрийн жижиг жишээнүүд
@@ -25,9 +25,9 @@ dp-club/
 1. GitHub дээр энэ repo-г **Fork** хийнэ.
 2. Өөрийн хуулбараа татна:
    ```bash
-   git clone https://github.com/<ТАНЫ_НЭР>/dp-club.git
-   cd dp-club
-   git remote add upstream https://github.com/PQ-007/dp-club.git   # нэг удаа
+   git clone https://github.com/<ТАНЫ_НЭР>/dp-forge.git
+   cd dp-forge
+   git remote add upstream https://github.com/PQ-007/dp-forge.git   # нэг удаа
    ```
 
 ## 3. Build ба ажиллуулах
