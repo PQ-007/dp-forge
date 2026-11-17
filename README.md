@@ -18,7 +18,8 @@ dp-forge/
 │   └── assets/              зураг, дуу
 ├── bots/                    8-р долоо хоногийн тэмцээн
 ├── CMakeLists.txt     БАГШ  бүгдийг build хийнэ (raylib-г автоматаар татна)
-└── SETUP-WINDOWS.md         Windows дээр суулгах заавар
+├── SETUP-WINDOWS.md         Windows дээр суулгах заавар (VS Code)
+└── CHEATSHEET.txt           git, build командуудын товч жагсаалт
 ```
 
 ## Дүрэм
@@ -32,7 +33,7 @@ dp-forge/
 
 | OS | Хэрэгтэй зүйл |
 |---|---|
-| **Windows** | [Visual Studio Community](https://visualstudio.microsoft.com/) ("Desktop development with C++" сонгоно) + [Git](https://git-scm.com/). Дэлгэрэнгүй алхам: **[SETUP-WINDOWS.md](SETUP-WINDOWS.md)** |
+| **Windows** | VS Code + Build Tools (compiler) + Git + CMake. Алхам алхмаар: **[SETUP-WINDOWS.md](SETUP-WINDOWS.md)** |
 | **macOS** | Terminal дээр `xcode-select --install`, дараа нь `brew install cmake` |
 | **Linux (Ubuntu)** | `sudo apt install build-essential cmake git libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev` |
 | **Linux (Fedora)** | `sudo dnf install gcc-c++ cmake git libX11-devel libXrandr-devel libXinerama-devel libXcursor-devel libXi-devel mesa-libGL-devel` |
@@ -49,12 +50,16 @@ dp-forge/
 
 ## 3. Build ба ажиллуулах
 
+**Windows (VS Code):** [SETUP-WINDOWS.md](SETUP-WINDOWS.md)-ийн Б4–Б7 алхам (`F7` build, `Shift+F5` ажиллуулах).
+
+**macOS / Linux (терминал):**
+
 ```bash
 cmake -S . -B build          # анх удаа raylib-г татна (хэдэн минут)
 cmake --build build
 ```
 
-Ажиллуулах (Windows дээр `.\build\Debug\game.exe` гэх мэт):
+Ажиллуулах:
 
 ```bash
 ./build/game          # таны тоглоом
@@ -67,12 +72,14 @@ cmake --build build
 ## 4. Долоо хоног бүр
 
 ```bash
-git pull upstream main     # багшийн шинэ жишээ, блокуудыг татах
-cmake --build build
+git pull --no-edit upstream main   # багшийн шинэ жишээ, блокуудыг татах
+# build хийнэ (VS Code: F7)
 git add .
 git commit -m "Нэмсэн зүйлээ бич"
 git push                   # өөрийн fork руу илгээх
 ```
+
+Бүх командын товч жагсаалт: **[CHEATSHEET.txt](CHEATSHEET.txt)**
 
 ## Долоо хоногууд
 
