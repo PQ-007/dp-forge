@@ -1,6 +1,8 @@
 build/
 .vscode/
 .idea/
+.vs/
+out/
 *.exe
 *.o
 .DS_Store
