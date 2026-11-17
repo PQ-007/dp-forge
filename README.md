@@ -27,7 +27,7 @@ dp-club/
    ```bash
    git clone https://github.com/<ТАНЫ_НЭР>/dp-club.git
    cd dp-club
-   git remote add upstream https://github.com/<БАГШИЙН_НЭР>/dp-club.git   # нэг удаа
+   git remote add upstream https://github.com/PQ-007/dp-club.git   # нэг удаа
    ```
 
 ## 3. Build ба ажиллуулах
