@@ -10,6 +10,7 @@
 #include "raylib.h"
 #include "config.h"
 #include "player.h"
+#include "my_coin.h"                                      // a) зоосны цэс
 
 static void DrawWorld() {
     // Тэнгэр -> газар
@@ -32,6 +33,7 @@ int main() {
 
     Player player = MakePlayer(SCREEN_W / 2.0f, GROUND_Y);
     bool showDebug = true;
+    Coin coin = MakeCoin(200, GROUND_Y - 30);             // b) loop-ийн өмнө 1 удаа үүсгэнэ
 
     // ===== GAME LOOP =====
     while (!WindowShouldClose()) {
@@ -42,11 +44,18 @@ int main() {
 
         // 2) UPDATE
         UpdatePlayer(player, dt);
+        Rectangle box = {                                 // d) тоглогчийн биеийг тойрсон тэгш өнцөгт
+            player.pos.x - PLAYER_W / 2,  // зүүн
+            player.pos.y - PLAYER_H,      // дээд
+            PLAYER_W, PLAYER_H            // өргөн, өндөр
+        };
+        UpdateCoin(coin, box);
 
         // 3) DRAW
         BeginDrawing();
             ClearBackground(BLACK);
             DrawWorld();
+            DrawCoin(coin);                               // c) тоглогчийн өмнө зурна
             DrawPlayer(player);
             if (showDebug) DrawDebug(player, dt);
             DrawText("A/D or arrows: move   F1: debug", 16, SCREEN_H - 30, 18, RAYWHITE);
