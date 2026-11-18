@@ -19,7 +19,8 @@ dp-forge/
 ├── bots/                    8-р долоо хоногийн тэмцээн
 ├── CMakeLists.txt     БАГШ  бүгдийг build хийнэ (raylib-г автоматаар татна)
 ├── SETUP-WINDOWS.md         Windows дээр суулгах заавар (VS Code)
-└── CHEATSHEET.txt           git, build командуудын товч жагсаалт
+├── CHEATSHEET.txt           git, build командуудын товч жагсаалт
+└── HOW-TO-CODE.md           game/ дотор код бичих заавар (юуг хаана, ямар дарааллаар)
 ```
 
 ## Дүрэм
@@ -80,6 +81,8 @@ git push                   # өөрийн fork руу илгээх
 ```
 
 Бүх командын товч жагсаалт: **[CHEATSHEET.txt](CHEATSHEET.txt)**
+
+Тоглоомдоо шинэ зүйл нэмэх заавар (зоос, дайсан…): **[HOW-TO-CODE.md](HOW-TO-CODE.md)**
 
 ## Долоо хоногууд
 

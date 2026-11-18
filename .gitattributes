@@ -1,0 +1,15 @@
+# Мөрийн төгсгөл (Windows CRLF / Linux LF)
+# автоматаар зохицуулна
+* text=auto
+
+# Код ба текст
+*.cpp  text
+*.h    text
+*.txt  text
+*.md   text
+
+# Зураг, дуу: хэзээ ч хөрвүүлэхгүй
+*.png  binary
+*.jpg  binary
+*.wav  binary
+*.ogg  binary
