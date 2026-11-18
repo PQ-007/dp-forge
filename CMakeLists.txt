@@ -5,6 +5,15 @@ project(dp_club CXX C)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Build төрөл сонгоогүй бол Debug (raylib-ийн "build type is not set" анхааруулгыг арилгана)
+if (NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "" FORCE)
+endif()
+
+# raylib 5.5 нь cmake_minimum_required(VERSION 3.5) гэж бичсэн тул CMake 4.x
+# "Compatibility with CMake < 3.10" гэсэн анхааруулга өгдөг. Алдаа биш, нууна.
+set(CMAKE_WARN_DEPRECATED OFF CACHE BOOL "" FORCE)
+
 # raylib-г GitHub-аас автоматаар татна (суулгах шаардлагагүй)
 include(FetchContent)
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
